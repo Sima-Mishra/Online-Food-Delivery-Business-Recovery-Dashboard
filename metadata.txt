@@ -1,0 +1,146 @@
+This document provides metadata descriptions for the tables in the QuickBite Express database, enabling analysis of customer behavior, restaurant performance, delivery efficiency, and ratings.
+
+fact_orders
+
+Purpose:
+Tracks customer orders, including amounts, timestamps, and cancellation status.
+
+order_id: Unique identifier for each order.
+
+customer_id: ID linking to the customer table.
+
+restaurant_id: ID linking to the restaurant table.
+
+delivery_partner_id: ID linking to the delivery partner table.
+
+order_timestamp: Timestamp of when the order was placed.
+
+subtotal_amount: Total cost before discounts.
+
+discount_amount: Applied discounts.
+
+delivery_fee: Fee charged for delivery.
+
+total_amount: Final order amount.
+
+is_cod: Whether the order is Cash on Delivery (Y/N).
+
+is_cancelled: Whether the order was cancelled (Y/N).
+
+--------------------------------------------------------------------------------------------------
+
+fact_order_items
+
+
+Purpose:
+Tracks individual items in each order.
+
+order_id: Links to fact_orders.
+
+menu_item_id: ID linking to the menu items table.
+
+quantity: Quantity of the item ordered.
+
+unit_price: Price per unit of the item.
+
+item_discount: Discount applied to the item.
+
+line_total: Price after applying item discount.
+
+fact_ratings
+
+--------------------------------------------------------------------------------------------------
+
+Purpose:
+Contains ratings and review data provided by customers for each order.
+
+order_id: Links to fact_orders.
+
+customer_id: Links to dim_customer.
+
+restaurant_id: Links to dim_restaurant.
+
+rating: Rating given by the customer (e.g., 1–5).
+
+review_text: Text of the review provided by the customer.
+
+review_timestamp: Timestamp of when the review was posted.
+
+sentiment_score: Sentiment score calculated based on review text (e.g., -1 to +1).
+
+--------------------------------------------------------------------------------------------------
+
+fact_delivery_performance
+
+Purpose:
+Tracks delivery performance metrics like delivery times and distance.
+
+order_id: Links to fact_orders.
+
+actual_delivery_time_mins: Actual delivery time in minutes.
+
+expected_delivery_time_mins: Expected delivery time based on SLA.
+
+distance_km: Distance traveled by the delivery partner (in km).
+
+--------------------------------------------------------------------------------------------------
+
+dim_customer
+
+Purpose:
+Contains demographic data about the customers.
+
+customer_id: Unique identifier for each customer.
+
+age_group: Age group of the customer (e.g., 18-24, 25-34).
+
+city_tier: Tier of the city where the customer resides (e.g., Tier 1, Tier 2).
+
+subscription_date: Date when the customer first used the service.
+
+last_active_date: Last date the customer interacted with the service.
+
+--------------------------------------------------------------------------------------------------
+
+dim_restaurant
+
+Purpose:
+Contains information about the restaurants involved with QuickBite.
+
+restaurant_id: Unique identifier for each restaurant.
+
+restaurant_name: Name of the restaurant.
+
+restaurant_type: Type of restaurant (e.g., Cloud Kitchen, Dine-in).
+
+location: Location of the restaurant.
+
+--------------------------------------------------------------------------------------------------
+
+dim_delivery_partner
+
+Purpose:
+Contains details about the delivery partners.
+
+delivery_partner_id: Unique identifier for each delivery partner.
+
+partner_name: Name of the delivery partner (e.g., Zomato, Swiggy).
+
+partner_type: Type of partner (e.g., third-party, in-house).
+
+--------------------------------------------------------------------------------------------------
+
+dim_menu_item
+
+Purpose:
+Contains details about menu items offered by restaurants.
+
+menu_item_id: Unique identifier for each menu item.
+
+restaurant_id: Links to dim_restaurant.
+
+item_name: Name of the item (e.g., Veg Biryani, Margherita Pizza).
+
+category: Category of the item (e.g., Starter, Main Course).
+
+price: Price of the menu item.

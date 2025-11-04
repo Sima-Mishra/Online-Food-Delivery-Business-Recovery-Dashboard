@@ -15,7 +15,7 @@ The dashboard helps identify:
 * Delivery efficiency & cancellation trends
 * Customer sentiment shifts from reviews
 
- ## ![POWERBI DASHBOARD](https://app.powerbi.com/view?r=eyJrIjoiZGVkNjg4NDEtNjc4Yy00YjZjLWFhOGEtMjNiMTE5YTY4YzM2IiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9&pageName=7c0f14d6216d35396578)
+[POWERBI DASHBOARD](https://app.powerbi.com/view?r=eyJrIjoiZGVkNjg4NDEtNjc4Yy00YjZjLWFhOGEtMjNiMTE5YTY4YzM2IiwidCI6ImM2ZTU0OWIzLTVmNDUtNDAzMi1hYWU5LWQ0MjQ0ZGM1YjJjNCJ9&pageName=7c0f14d6216d35396578)
 
 
 ---
